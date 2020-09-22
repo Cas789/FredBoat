@@ -159,3 +159,6 @@ quarterdeck.yaml
 lavalink.yaml
 *.log
 *.gz
+
+### Actual Custom ###
+/config/common.yml
