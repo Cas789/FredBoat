@@ -103,7 +103,7 @@ public class TextUtils {
     }
 
     private static final String SORRY = "An error occurred " + Emojis.ANGER + "\nPlease try again later. If the issue"
-            + " persists please join our support chat and explain what steps you took to receive this response."; //todo i18n?
+            + " let Cas or another member of the Pantheon Staff team know."; //todo i18n?
 
     /**
      * This method takes care of all exceptions when a {@link Context} is present. If it is an expected exception, like

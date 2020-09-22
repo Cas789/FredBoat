@@ -84,22 +84,37 @@ public class HelpCommand extends JCommand implements IInfoCommand {
             return;
         }
 
-        context.replyPrivateMono(getHelpDmMsg(context.getI18n()))
-                .doOnError(throwable -> {
-                    if (context.hasPermissions(Permission.MESSAGE_WRITE)) {
-                        context.replyWithName(Emojis.EXCLAMATION + context.i18n("helpDmFailed"));
-                    }
-                }).subscribe(__ -> {
-                    HELP_RECEIVED_RECENTLY.put(userId, true);
-                    String out = context.i18n("helpSent");
-                    out += "\n" + context.i18nFormat("helpCommandsPromotion",
-                            "`" + TextUtils.escapeMarkdown(context.getPrefix())
-                                    + CommandInitializer.COMMANDS_COMM_NAME + "`");
-                    if (context.hasPermissions(Permission.MESSAGE_WRITE)) {
-                        context.replyWithName(out);
-                        PrefixCommand.Companion.showPrefix(context, context.getPrefix());
-                    }
-                });
+        String out = "__**Music Bot Commands**__"
+        + "\n```md"
+        + "\n#User Commands"
+        + "\n!play <url>      < Play music from the given URL >"
+        + "\n!play <words>    < Search for a track on Youtube/Soundcloud >"
+        + "\n!queue           < Display queue of tracks in playlist >"
+        + "\n!nowplaying      < Display currently playing track >"
+        + "\n!skip            < Remove current track from queue >"
+        + "\n!voteskip        < Vote skip track. 50%+ votes needed >"
+        + "\n!join            < Make Bard join current VC >"
+        + "\n!leave           < Make Bard leave current VC >"
+        + "\n!history         < Show history of recently played tracks >"
+        + "\n!export          < Export the current queue to hastebin >"
+        + "\n!help <command>  < Show advanced usage of a command >"
+        + "\n"
+        + "\n#DJ Commands"
+        + "\n!pause           < Pause the player >"
+        + "\n!resume          < Resume the player >"
+        + "\n!reshuffle       < Reshuffle the queue >"
+        + "\n!repeat          < Change repeat mode. Run for more info >"
+        + "\n!fwd <time>      < Forward the track by given amount of time >"
+        + "\n!rew <time>      < Rewind the track by given amount of time >"
+        + "\n!seek <time>     < Set the position of the track to given time >"
+        + "\n!restart         < Restart the currently playing track >"
+        + "\n"
+        + "\n#Admin Commands"
+        + "\n!stop            < Stop player & clear playlist >"
+        + "\n!volume <0-150>  < Set the volume >"
+        + "\n!shuffle         < Toggle shuffle mode >```";
+
+        context.reply(out);
     }
 
     //for answering private messages with the help

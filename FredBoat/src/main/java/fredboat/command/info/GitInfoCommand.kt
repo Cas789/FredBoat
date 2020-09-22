@@ -102,6 +102,6 @@ class GitInfoCommand(name: String, vararg aliases: String) : Command(name, *alia
     }
 
     override fun help(context: Context): String {
-        return "{0}{1}\n#Display some git meta information about the running FredBoat build."
+        return "{0}{1}\n#Display some git meta information about the running Pantheon build."
     }
 }

@@ -76,6 +76,6 @@ public class StopCommand extends JCommand implements IMusicCommand, ICommandRest
     @Nonnull
     @Override
     public PermissionLevel getMinimumPerms() {
-        return PermissionLevel.DJ;
+        return PermissionLevel.BOT_ADMIN;
     }
 }

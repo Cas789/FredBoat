@@ -56,39 +56,39 @@ class MusicHelpCommand(name: String, vararg aliases: String) : Command(name, *al
     }
 
     override suspend fun invoke(context: CommandContext) {
+        val out = 
+        """
+        __**Music Bot Commands**__
+        ```md
+        #User Commands
+        !play <url>      < Play music from the given URL >
+        !play <words>    < Search for a track on Youtube/Soundcloud >
+        !queue           < Display queue of tracks in playlist >
+        !nowplaying      < Display currently playing track >
+        !skip            < Remove current track from queue >
+        !voteskip        < Vote skip track. 50%+ votes needed >
+        !join            < Make Bard join current VC >
+        !leave           < Make Bard leave current VC >
+        !history         < Show history of recently played tracks >
+        !export          < Export the current queue to hastebin >
+        !help <command>  < Show advanced usage of a command >
 
-        if (context.args.size > 2 && context.args[0].toLowerCase().contains(UPDATE)) {
-            updateMessage(context)
-            return
-        }
+        #DJ Commands
+        !pause           < Pause the player >
+        !resume          < Resume the player >
+        !reshuffle       < Reshuffle the queue >
+        !shuffle         < Toggle shuffle mode >
+        !fwd <time>      < Forward the track by given amount of time >
+        !rew <time>      < Rewind the track by given amount of time >
+        !seek <time>     < Set the position of the track to given time >
+        !restart         < Restart the currently playing track >
 
-        var postInDm = true
-        if (context.rawArgs.toLowerCase().contains(HERE)) {
-            postInDm = false
-        }
-
-        val messages = getMessages(context)
-        var lastOne = ""
-        if (postInDm) {
-            lastOne = messages.removeAt(messages.size - 1)
-        }
-
-        for (message in messages) {
-            if (postInDm) {
-                context.replyPrivate(message)
-            } else {
-                context.reply(message)
-            }
-        }
-
-        if (postInDm) {
-            context.replyPrivateMono(lastOne)
-                    .doOnError {
-                        if (context.hasPermissions(Permission.MESSAGE_WRITE)) {
-                            context.replyWithName(Emojis.EXCLAMATION + context.i18n("helpDmFailed"))
-                        } }
-                    .subscribe{ context.replyWithName(context.i18n("helpSent")) }
-        }
+        #Admin Commands
+        !stop            < Stop player & clear playlist >
+        !volume <0-150>  < Set the volume >
+        !repeat          < Change repeat mode. Run for more info >```
+        """.trimIndent()
+        context.reply(out)
     }
 
     override fun help(context: Context): String {

@@ -48,7 +48,7 @@ class DiscordPermissionCommand(name: String, vararg aliases: String) : Command(n
 
     override fun help(context: Context): String {
         return ("{0}{1} [channel id or mention] [user id or mention]\n#Show permissions of a user and any roles they "
-                + "have for a channel and guild. If no user is provided, FredBoat shows permissions for itself. If no "
+                + "have for a channel and guild. If no user is provided, Bard Panther shows permissions for itself. If no "
                 + "channel is provided, permissions for the channel where the command is issued are shown.")
     }
 

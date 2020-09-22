@@ -49,5 +49,5 @@ class GuildDebugCommand(name: String, vararg aliases: String) : Command(name, *a
         }
     }
 
-    override fun help(context: Context) = "Displays FredBoat state of this guild"
+    override fun help(context: Context) = "Displays Bard Panther state of this guild"
 }

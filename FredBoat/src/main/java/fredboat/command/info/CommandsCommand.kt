@@ -92,19 +92,39 @@ class CommandsCommand(name: String, vararg aliases: String) : Command(name, *ali
             }
         }
 
-        val embed = coloredEmbed {
-            showHelpFor.forEach { module ->
-                addModuleCommands(context, CommandRegistry.getCommandModule(module))
-            }
+        val out = 
+        """
+        __**Music Bot Commands**__
+        ```md
+        #User Commands
+        !play <url>      < Play music from the given URL >
+        !play <words>    < Search for a track on Youtube/Soundcloud >
+        !queue           < Display queue of tracks in playlist >
+        !nowplaying      < Display currently playing track >
+        !skip            < Remove current track from queue >
+        !voteskip        < Vote skip track. 50%+ votes needed >
+        !join            < Make Bard join current VC >
+        !leave           < Make Bard leave current VC >
+        !history         < Show history of recently played tracks >
+        !export          < Export the current queue to hastebin >
+        !help <command>  < Show advanced usage of a command >
 
-            field {
-                body = context.i18nFormat(
-                        "commandsMoreHelp",
-                        "`" + TextUtils.escapeMarkdown(context.prefix) + CommandInitializer.HELP_COMM_NAME + " <command>`"
-                )
-            }
-        }
-        context.reply(embed)
+        #DJ Commands
+        !pause           < Pause the player >
+        !resume          < Resume the player >
+        !reshuffle       < Reshuffle the queue >
+        !shuffle         < Toggle shuffle mode >
+        !fwd <time>      < Forward the track by given amount of time >
+        !rew <time>      < Rewind the track by given amount of time >
+        !seek <time>     < Set the position of the track to given time >
+        !restart         < Restart the currently playing track >
+
+        #Admin Commands
+        !stop            < Stop player & clear playlist >
+        !volume <0-150>  < Set the volume >
+        !repeat          < Change repeat mode. Run for more info >```
+        """.trimIndent()
+        context.reply(out)
     }
 
     private suspend fun Embed.addModuleCommands(context: CommandContext, module: CommandRegistry) {

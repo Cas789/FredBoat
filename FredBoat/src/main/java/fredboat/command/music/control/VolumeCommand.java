@@ -85,6 +85,6 @@ public class VolumeCommand extends JCommand implements IMusicCommand, ICommandRe
     @Nonnull
     @Override
     public PermissionLevel getMinimumPerms() {
-        return PermissionLevel.DJ;
+        return PermissionLevel.BOT_ADMIN;
     }
 }

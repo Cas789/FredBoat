@@ -109,7 +109,7 @@ class StatsCommand(
             content += "\n----------\n\n"
 
             content += "Distribution:                   " + Launcher.botController.appConfig.distribution + "\n"
-            content += "FredBoat version:               " + AppInfo.getAppInfo().versionBuild + "\n"
+            content += "Bard version:               " + AppInfo.getAppInfo().versionBuild + "\n"
             content += "Lavaplayer version:             " + PlayerLibrary.VERSION + "\n"
 
             content += "\n----------\n\n"
