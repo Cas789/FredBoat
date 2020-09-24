@@ -46,7 +46,7 @@ import java.util.regex.Pattern
 class SkipCommand(name: String, vararg aliases: String) : Command(name, *aliases), IMusicCommand, ICommandRestricted {
 
     override val minimumPerms: PermissionLevel
-        get() = PermissionLevel.BOT_ADMIN
+        get() = PermissionLevel.ADMIN
 
     override suspend fun invoke(context: CommandContext) {
         val player = Launcher.botController.playerRegistry.getExisting(context.guild)
@@ -154,7 +154,7 @@ class SkipCommand(name: String, vararg aliases: String) : Command(name, *aliases
     }
 
     private suspend fun skipMember(player: GuildPlayer, context: CommandContext, members: List<Member>) {
-        if (!PermsUtil.checkPerms(PermissionLevel.BOT_ADMIN, context.member)) {
+        if (!PermsUtil.checkPerms(PermissionLevel.ADMIN, context.member)) {
 
             if (members.size == 1) {
                 val user = members[0]

@@ -57,6 +57,6 @@ public class DestroyCommand extends JCommand implements IMusicCommand, ICommandR
     @Nonnull
     @Override
     public PermissionLevel getMinimumPerms() {
-        return PermissionLevel.BOT_ADMIN;
+        return PermissionLevel.ADMIN;
     }
 }
