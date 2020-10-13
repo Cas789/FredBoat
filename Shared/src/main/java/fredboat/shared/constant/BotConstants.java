@@ -39,18 +39,18 @@ public class BotConstants {
     public static final long FBH_MODERATOR_ROLE_ID = 242377373947920384L;
     public static final Color FREDBOAT_COLOR = new Color(28, 191, 226); //#1CBFE2
 
-    public static final String FREDBOAT_URL = "https://fredboat.com";
+    public static final String FREDBOAT_URL = "https://pantheoncommunity.org";
     public static final String DOCS_URL = FREDBOAT_URL + "/docs";
     public static final String DOCS_PERMISSIONS_URL = DOCS_URL + "/permissions";
     public static final String DOCS_DONATE_URL = DOCS_URL + "/donate";
 
-    public static final String PATREON_CAMPAIGN_URL = "https://www.patreon.com/fredboat";
+    public static final String PATREON_CAMPAIGN_URL = "https://www.pantheoncommunity.org";
 
-    public static final String GITHUB_URL = "https://github.com/Frederikam/FredBoat";
+    public static final String GITHUB_URL = "https://github.com/Cas789/FredBoat";
 
     //These can be set using eval in case we need to change it in the future ~Fre_d
-    public static String hangoutInvite = "https://discord.gg/cgPFW4q";
-    public static String botInvite = "https://goo.gl/cFs5M9";
+    public static String hangoutInvite = "https://discord.gg/pantheon";
+    public static String botInvite = "https://discord.gg/pantheon";
 
     private BotConstants() {
     }
